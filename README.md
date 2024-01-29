@@ -7,7 +7,7 @@ Pre-Requisite:
                 1. Docker Desktop (Install and Run it)
                 2. Azure Account with free trial subscription or Pay as You Go Subscription.
 
-To Deploy the application on Container Instance first we need to store it somewhere. For this, we will use ACR(Azure Container Registry).
+To Deploy the application on Container App first we need to store it's image somewhere. For this, we will use ACR(Azure Container Registry).
 
 So First thing First.
 Let's create a project, for my case I will download it.
@@ -70,7 +70,7 @@ Since our basic project is ready let's move to create Azure Container Registry. 
     1. In the command Prompt in VS Code type " az login " and press enter. It will ask you to log in to Azure and log in with your Azure account.
     2. Now run the command docker "login your-login-server -u username -p password".(These details you will get from the "Access Key" section from your Registry in Azure Portal).
     3. Now we need to build the project, for this run the command " docker build -t myapp . "(Here myapp2 is the build name, you can give any name).
-    4. Next step is to tag the build from your local to Register, i.e.. to map it(since there could be many registers in real life and all will have different login servers and details, so we map it). To do this use the command "docker tag myapp2:latest your-login-server/myapp2:latest."
+    4. Next step is to tag the build from your local to Register, i.e.. to map it(since there could be many registries in real life and all will have different login servers and details, so we map it). To do this use the command "docker tag myapp2:latest your-login-server/myapp2:latest."
     In the above command in the first part myapp is the build name and the latest is the tag name(you can think of tag as a version of the application), and in the second part, we are mapping the whole thing as to this particular login server(your-login-server) and appname and then tag name.
     5. Now we need to push the image to registery, for this use command "docker push your-login-server/myapp2".
 
